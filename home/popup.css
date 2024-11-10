@@ -1,0 +1,61 @@
+:root{
+    --primary:#763626;
+    --hover:#5b291c;
+    --second:#5f2d21;
+    --lightbg:rgb(150, 191, 225); 
+    --link: #26272Bff;
+    --bg:#f4fffc;
+--dark: #392F2Dff;
+}
+body{
+    font-family: poppins;
+display: flex;
+justify-content: center;
+align-items: center;
+background:#f4fffc;
+color: #222;
+
+
+}
+/* Style the popup box */
+.popup {
+    margin-top:  10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border:none;
+    border-radius: 10px;
+    height: 300px;
+    width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the OK button */
+.popup .btn{
+ width: 85px;
+}
+.popup .btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.popup .btn:hover{
+    background-color: var(--hover);
+}
+a{
+    margin-top: 1rem;
+    color: #f4fffc;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<script>
+    function showSection(sectionId) {
+  // Hide all sections
+  const sections = document.querySelectorAll('.content-section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+
+  // Show the selected section
+  const sectionToShow = document.getElementById(sectionId);
+  sectionToShow.style.display = 'block';
+}
+</script>
+<body>
+    <header>
+        <nav>
+            <div class="logo">YathraTales.Co</div>
+            <div class="nav-links">
+              <li><a href="#terms-conditions">Terms&Conditions</a></li>
+              <li><a href="#privacypolicy">Privacy Policy</a></li>
+             <!--<li class="contact-btn"><a href="#contactus" onclick="showSection('contactus')">Contact us</a></li>-->
+            </div>
+        </nav>
+
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+       </div>
+    </header>
+
+    <section class="hero">
+        <video autoplay muted loop id="hero-video">
+            <source src="transition.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>TO TRAVEL IS TO LIVE</h1>
+            <p>It's better to see something once than to hear about it a thousand times.</p>
+
+        <!--BUTTONS-->
+            <div class="buttons">
+            <a href="loginn.php" class="cta-button" id="getStartedButton">Get Started</a>
+            </div>
+            
+        </div>
+    </section>
+  
+    <!--TERMS AND CONDITIONS-->
+    <section id="terms-conditions">
+        <h2>Terms and Conditions</h2>
+    <div>
+    
+      <ul>
+        <p>
+            <p>
+                <li><b>INTRODUCTION</b></li>
+                Welcome to Yathratales.co. By accessing our website and services, you agree to the following terms and conditions.
+                 Please read them carefully before using our services. 
+                 These terms apply to all users, including visitors, customers, and contributors of content.
+              </p>
+              <p>
+                <li><b>ACCEPTANCE OF TERMS</b></li>
+                By using Yathratales.co, you accept and agree to be bound by these terms. 
+                
+              </p>
+              <p>
+                <li><b>SERVICE DESCRIPTION</b></li>
+                Yathratales.co provides tourism management guidance, travel advice, itinerary planning, and related content to help users enhance their travel experience. 
+                All content provided is for informational purposes only and should not be considered professional advice.
+              </p> 
+              <p>
+                <li><b>USE OF WEBSITE</b></li>
+                You agree to use the website for lawful purposes only.
+            You must not use the site to engage in any illegal, fraudulent, or harmful activity.
+            You are prohibited from attempting to interfere with the proper working of the site, including hacking or introducing malicious code.
+              </p>
+              <p>
+                <li><b>USER RESPONSIBILITY</b></li>
+                All information you provide to Yathratales.co must be accurate, current, and complete.
+                We are not liable for any direct or indirect loss or damage resulting from reliance on the information provided on this website.
+                Our website may contain links to third-party websites or services that are not owned or controlled by Yathratales.co.
+                 We are not responsible for the content, privacy policies, or practices of any third-party websites or services.
+                 Yathratales.co reserves the right to modify or update these terms at any time.
+                  Users will be notified of any material changes, and continued use of the website after such changes constitutes acceptance of the updated terms.
+            
+              </p>
+              <p>
+                <li><b>TERMINATION</b></li>
+                We reserve the right to terminate or suspend your access to Yathratales.co at our discretion, without prior notice, for any violation of these terms or for any other reason.</p>
+                 
+              <p>
+                  We understand that legal terms can be exhausting to 
+                  read, and we’ve tried to make the experience more
+                   pleasant. If you have suggestions on how we can improve them, 
+                  you are welcome to <a href="#contactus" onclick="showSection('contactus')" >contact us</a>.
+              </p>
+        </p>
+    </ul>
+    </div>
+    </section>
+  <!--END OF TERMS-->
+
+<!-- PRIVACYPOLICY-->       
+     
+<section id="privacypolicy">
+    <h2>Privacy Policy</h2>
+   <div class="content">
+   <h4>Please read carefully</h4>
+   <p>
+    At Yathratales.co, we are committed to protecting your privacy and ensuring the security of your personal information. 
+    This Privacy Policy explains how we collect, use, share, and protect your data when you visit our website or use our services. </p> 
+       
+     <p> We collect both personal and non-personal information from users to improve our services and provide a personalized experience.
+       The types of information we may collect include:
+  
+      <b>Personal Information:</b> This includes information you provide when you contact us, subscribe to our newsletter, or use our services. 
+      It may include your name, email address, phone number, and any other relevant details.
+      <b>Non-Personal Information:</b> This includes browsing behavior, device information, IP address, and other technical data that do not personally identify you.</p> 
+       
+    <p> We do not sell, trade, or rent your personal information to third parties. However, we may share your information with:
+  
+      1)Service Providers: We may share data with trusted third-party vendors who assist us in operating our website, conducting business, or serving you (e.g., payment processors or customer support services). 
+      These third parties are obligated to keep your information confidential and use it only for the services they provide.
+      2-10
+      2) Requirements: We may disclose your information when required by law or to protect the rights, safety, or property of Yathratales.co, our users, or others.
+   </p>
+    
+  </div>
+  </section>
+  <!--END OF PRIVACYPOLICY-->
+  
+<!--CONTACT US
+<section id="contactus" class="content-section">
+    <div class="contact-container">
+        <div class="contact-img">
+            <img src="mountain.jpg" alt="Contact Image">
+        </div>
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="contactus.php" method="POST">
+                <label for="username">Username *</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>   
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                
+                <label for="message">Your queries *</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+<!--END OF CONTACT US--> 
+ <footer>
+    <p class="footer"> YathraTales.co @2024 | All rights reserved.</p>
+ </footer>   
+</body>
+</html>

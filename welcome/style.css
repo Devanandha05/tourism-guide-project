@@ -1,0 +1,170 @@
+
+:root{
+    --mist:#90afc5;
+    --stone:#336b87;
+    --shadow:#2a3132;
+    --brown:#3c3d50;
+    --text:#433;
+    --white:#f8ede9;
+    }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--text);
+    
+}
+body {
+    font-family: poppins;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: poppins;
+    background: url("taj.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+	/*background: linear-gradient(-135deg, #2a3132, #234152,#3c3d50);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;*/
+	height: 100vh;
+}
+body::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(15, 33, 14, 0.4); /* Add a dark overlay */
+        z-index: 1;
+    }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 60%;
+	}
+	40% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 60%;
+	}
+}
+
+
+.login{
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+    align-content: center;
+    background: rgba(255, 255, 255, 0.1); /* Light, semi-transparent background */
+  box-shadow: 0 8px 30px 0 rgba(255, 255, 255, 0.278);   /* Box shadow for depth */
+   backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Transparent border */
+    padding: 10px 24px 20px;
+    border-radius: 10px;
+    text-align: left;
+   width: 438px;
+   height:450px;
+}
+
+.container h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--white); 
+    text-align: center;
+}
+.form{
+    margin: 0;
+    position: relative;
+}
+.form .all-input{
+    justify-content: space-between;
+    gap:30px;
+}
+.form .input label {
+    position:relative;
+    cursor: text;
+    color: var(--white); 
+   padding: 5px 10px;
+    transition: all .3s ease;
+}
+.form .input input {
+    color: var(--white);
+    width: 100%;
+    padding:10px;
+    background: transparent;
+    margin-bottom: 10px;
+    border: 1px solid var(--mist);
+    border-radius: 20px;
+    transition: all .3s ease;
+}
+
+.form .input input:focus{
+    border-color:  var(--stone);
+    outline: 1px solid var(--stone);
+}
+.password-rules{
+    font-size: small;
+    padding-bottom: 10px;
+}
+.password-rules li{
+    list-style: none;
+   
+}
+.forgot-password{
+    text-align: right;
+    margin-top: 0;
+    padding: 0;
+}
+.forgot-password a{
+    color: var(--white); 
+}
+.forgot-password a:hover{
+    text-decoration: underline;
+}
+.button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 2rem;
+    margin-bottom: 5px;
+    background-color:var( --white); /* Deep Ocean Blue */
+    color: #2a3132;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition:  0.3s ease-in-out;
+}
+
+.button:hover {
+
+box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.416); /* Box shadow for depth */
+
+}
+h4{
+    font-size: 20px;
+    margin-top: 2rem;
+    font-weight: unset;
+    color: var(--white); 
+   text-align: center;
+}
+a{
+    text-decoration: none;
+    font-weight: normal;
+    color:var(--white) ; /* Deep Ocean Blue */
+
+}
+a:hover{
+    text-decoration: underline;
+}
+.error{
+ color: red;
+}
