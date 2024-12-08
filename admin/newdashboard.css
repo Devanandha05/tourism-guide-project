@@ -69,25 +69,22 @@ border-radius:30px;
   }
   span{
     font-size: 18px;
+    margin:0  5px;
+
   }
   .logout-btn{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap:10px;
-    border: none;
-    background-color: transparent;
-    color: var(--shadow);
-    padding: 5px;
-    border-radius: 8px;
-    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 4px;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 15px;
     transition: 0.3s ease;
+    background-color: #005245;
   }
-  
-  .logout-btn img{
-    margin: 25px;
-    height: 25px;
-    width: 25px;
+  .logout button:hover{
+    background-color: #218838;
   }
 .logo,.topbar,.search-bar,.admin-profile{  
     border-radius: 15px;

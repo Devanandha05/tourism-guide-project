@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     
     // Retrieve the form data using $_GET superglobal
     $region = $_GET['region'];  
-    $type = $_GET['type'];
+    $type = htmlspecialchars(trim($_GET['type'])); 
     $g_rating = $_GET['g_rating'];
     
     // Database connection
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Check if there are results
     if ($result->num_rows > 0) {
         echo "<div class='res-title'>";
-        echo "<h3>Matching places according to your preferences:</h3>";
+        echo "<h3>Suggested places</h3>";
         echo "</div>";
         
         // Output data for each row
@@ -94,48 +94,46 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
             echo "<div class='loc-title'>";
                 echo "<p class='name'> " . htmlspecialchars($row['name']) . "</p>";
+                
                 echo "<img src='" . htmlspecialchars($row['image_url']) . "' alt='Failed to load' class='image-class' />"; 
             echo "</div>";
-
-           /* $place = htmlspecialchars($row['city']);
-
-            $apiKey = '626428a764ef5662b64de504a11d9d71'; // Your OpenWeatherMap API Key
-            $weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" . urlencode($place) . "&appid=$apiKey&units=metric";
-           
-            // Fetch weather data
-            $weatherResponse = file_get_contents($weatherUrl);
-            
-            if ($weatherResponse !== false) {
-                // Convert JSON response to PHP array
-                $weatherData = json_decode($weatherResponse, true);
-
-                // Check if the weather data is available
-                if ($weatherData['cod'] == 200) {
-                    // Display the weather information
-                    echo "<div id='weatherInfo' class='place-weather'>";
-                    echo "<h3>Weather in " . $weatherData['name'] . ", " . $weatherData['sys']['country'] . "</h3>";
-                    echo "<p><strong>Temperature:</strong> " . $weatherData['main']['temp'] . "°C</p>";
-                    echo "<p><strong>Weather:</strong> " . $weatherData['weather'][0]['description'] . "</p>";
-                    echo "<p><strong>Humidity:</strong> " . $weatherData['main']['humidity'] . "%</p>";
-                    echo "<p><strong>Wind Speed:</strong> " . $weatherData['wind']['speed'] . " m/s</p>";
-                    echo "</div>";
-                } else {
-                    echo "<h3>Weather data not found for this location.</h3>";
-                }
-            } else {
-                echo "<h3>Failed to fetch weather data.</h3>";
-                echo "</div>";
-            }*/
             
             echo "<div class='details'>";
+            echo "<div class='google-rating-box'>
+                <div class='google-rating-stars'>";
+                    $rating = htmlspecialchars($row['g_rating']);
+                    $fullStars = floor($rating); // Full stars
+                    $partialStarWidth = ($rating - $fullStars) * 100; // Partial star width as percentage
+                    $maxStars = 5; // Maximum number of stars
+            
+                    // Display background stars
+                    for ($i = 0; $i < $maxStars; $i++) {
+                        echo '<span class="rating-star-bg">★</span>';
+                    }
+            
+                    // Overlay filled stars
+                    echo '<div class="rating-star-filled" style="width: ' . min($partialStarWidth + $fullStars * 20, 100) . '%;">';
+                    for ($i = 0; $i < $maxStars; $i++) {
+                        echo '<span class="rating-star-bg">★</span>';
+                    }
+                    echo "</div>
+                </div>
+                <span>";
+                 echo  $rating."</span>";
+         $reviewCount = htmlspecialchars($row['g_reviewcount']); // Original review count
+         $reviewCountInThousands = $reviewCount*1000; // Convert to thousands
+     
+         // Format the value with one decimal point and append "K"
+         echo "<p>  from " . number_format($reviewCountInThousands, 1) . "K reviews</p>";
+     
+            echo "</div>";
             echo "<p>State: " . htmlspecialchars($row['state']) . "</p>";
             echo "<p>City: " . htmlspecialchars($row['city']) . "</p>";
-            echo "<p>Google Rating: " . htmlspecialchars($row['g_rating']) . "</p>";
-            echo "<p>Entry Fee: " . htmlspecialchars($row['entry_fee']) . "</p>";
+            echo "<p>Entry Fee: " . htmlspecialchars($row['entry_fee']) . "&#8377;</p>";
             echo "<p>Best time to visit: " . htmlspecialchars($row['best_visit_time']) . "</p>";
             echo "<form class='detail-btn' action='loc_details.php'>
             <input type='hidden' name='location_name' value='" . htmlspecialchars($row['city']) . "' />
-            <button type='submit' class='location-btn' data-location='". htmlspecialchars($row['city']) . "'>More About City</button>
+            <button type='submit' class='location-btn' data-location='". htmlspecialchars($row['city']) . "'>More About City <i class='fas fa-arrow-right'></i></button>
         </form>";
             echo "</div>";
 

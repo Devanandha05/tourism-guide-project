@@ -3,7 +3,7 @@
 session_start(); // Start or resume the session
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   // If not logged in, redirect to the login page
-  header("Location: /Tourist Guide project/welcome/loginn.php");
+  header("Location: /Tourist Guide project/welcome/signup.php");
   exit;
 }
 
@@ -28,6 +28,10 @@ if (isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <script src="home.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="slide.js" ></script>
+<link rel="stylesheet" href="slide.css">
+
     <script>
       function showSection(sectionId) {
   // Hide all sections
@@ -66,13 +70,7 @@ if (isset($_SESSION['username'])) {
             <li><a href="#" onclick="showSection('emergency')">Helpline</a></li>  
           </ul>
           <div class="admin-profile">
-           <p><?php echo $_SESSION['username'];?></p>
-
-             <form class="logout" action="logout.php" method="get">
-               <button class="logout-btn" type="submit" name="logout">Logout
-               </button>
-             </form>
-             </div>
+           <a href="profile.php"><?php echo $_SESSION['username'];?></a>
             <script src="home.js"></script>
         </nav>
 
@@ -86,11 +84,97 @@ if (isset($_SESSION['username'])) {
      <p class="hero-p">Plan your trip with us and travel around India with the most affordable packages!</p>
      <a href="#locations" class="btn">Explore Locations!</a>   
 </div>
-<!-- POPULAR LOCATIONS -->
 
+<!-- POPULAR LOCATIONS -->
+ <section id="carousel" class="img-carousel">
+<div class="carousel">
+    <div class="carousel__nav">
+     <span id="moveLeft" class="carousel__arrow">
+          <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+  </svg>
+      </span>
+      <span id="moveRight" class="carousel__arrow" >
+        <svg class="carousel__icon"  width="24" height="24" viewBox="0 0 24 24">
+    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+  </svg>    
+      </span>
+    </div>
+    <div class="carousel-item carousel-item--1">
+      <div class="carousel-item__image"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+        <h2 class="carousel-item__subtitle">Kashmir </h2>
+        <h1 class="carousel-item__title">Taj Mahal</h1>
+        </h1>
+        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        <a href="#" class="carousel-item__btn">Explore the tour</a>
+          </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--2">
+      <div class="carousel-item__image"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+        <h2 class="carousel-item__subtitle">New Delhi </h2>
+        <h1 class="carousel-item__title">Lotus Temple</h1>
+        <p class="carousel-item__description">Clear Glass Window With Brown and White Wooden Frame iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        <a href="#" class="carousel-item__btn">Read the article</a>
+          </div>
+      </div>
+    </div>
+      <div class="carousel-item carousel-item--3">
+      <div class="carousel-item__image"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+        <h2 class="carousel-item__subtitle">Goa</h2>
+        <h1 class="carousel-item__title">Beach</h1>
+        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        <a href="#" class="carousel-item__btn">Explore the palms</a>
+          </div>
+      </div>
+    </div>
+    
+     <div class="carousel-item carousel-item--4">
+      <div class="carousel-item__image"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+        <h2 class="carousel-item__subtitle">Kerala </h2>
+        <h1 class="carousel-item__title">Munnar </h1>
+        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        <a href="#" class="carousel-item__btn">Explore the beach</a>
+          </div>
+      </div>
+    </div>
+    
+   <div class="carousel-item carousel-item--5">
+      <div class="carousel-item__image"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+        <h2 class="carousel-item__subtitle">Nepal </h2>
+        <h1 class="carousel-item__title">Kathmandu</h1>
+        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        <a href="#" class="carousel-item__btn">Read the article</a>
+          </div>
+      </div>
+    </div>
+    
+    <div class="carousel-item carousel-item--6">
+      <div class="carousel-item__image"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+        <h2 class="carousel-item__subtitle">Tamil Nadu</h2>
+        <h1 class="carousel-item__title">Adiyogi Shiva Statue</h1>
+        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        <a href="#" class="carousel-item__btn">Read the article</a>
+          </div>
+      </div>
+    </div>
+  </div>
+  </section>
 <section id="locations">
   <section class="locations">
-      <h2>Popular Locations</h2>
+      <h2>Popular Locations</h2> 
       <div class="location-cards">
           <div class="card">
               <img src="taj.jpg" alt="Taj Mahal">
@@ -241,115 +325,6 @@ if (isset($_SESSION['username'])) {
   </div>
 </section> 
 <!--------------------------------------------------------------------------------END OF REVIEWS--
-
-<section id="exploreind" >
-    <div id="modalForm" class="modal" >
-     <h2>Tell Us Your Preferences!</h2>
-
-     <div class="form-container">
-        <form action="location.php" method="get">
-    <h3>Let Us Know Your Interests</h3>
-            <label for="region">Region:</label>
-            <select id="region" name="region">
-              <option value=""></option>
-                <option value="South India">South India</option>
-                <option value="North India">North India</option>
-                <option value="West India">West India</option>
-                <option value="East India">East India</option> 
-                <option value="Central India">Central India</option>                
-            </select>
-            <label for="type">Type</label>
-            <select id="type" name="type">
-              <option value=""></option>
-                <option value="Amusement Park">Amusement Park</option>
-                <option value="Aquarium">Aquarium</option>
-                <option value="Beach">Beach</option>
-                <option value="Bird Sanctuary">Bird Sanctuary</option>
-                <option value="Border Crossing">Border Crossing</option>
-                <option value="Botanical Garden">Botanical Garden</option>
-                <option value="Cave">Cave</option>
-                <option value="Church">Church</option>
-                <option value="Commercial Complex">Commercial Complex</option>
-                <option value="Confluence">Confluence</option>
-                <option value="Cricket Ground">Cricket Ground</option>
-                <option value="Cultural">Cultural</option>
-                <option value="Dam">Dam</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Film Studio">Film Studio</option>
-                <option value="Fort">Fort</option>
-                <option value="Ghat">Ghat</option>
-                <option value="Government Building">Government Building</option>
-                <option value="Gravity Hill">Gravity Hill</option>
-                <option value="Gurudwara">Gurudwara</option>
-                <option value="Hill">Hill</option>
-                <option value="Historical">Historical</option>
-                <option value="Island">Island</option>
-                <option value="Lake">Lake</option>
-                <option value="Landmark">Landmark</option>
-                <option value="Mall">Mall</option>
-                <option value="Market">Market</option>
-                <option value="Mausoleum">Mausoleum</option>
-                <option value="Memorial">Memorial</option>
-                <option value="Monastery">Monastery</option>
-                <option value="Monument">Monument</option>
-                <option value="Mosque">Mosque</option>
-                <option value="Mountain Peak">Mountain Peak</option>
-                <option value="Museum">Museum</option>
-                <option value="National Park">National Park</option>
-                <option value="Natural Feature">Natural Feature</option>
-                <option value="Observatory">Observatory</option>
-                <option value="Orchard">Orchard</option>
-                <option value="Palace">Palace</option>
-                <option value="Park">Park</option>
-                <option value="Prehistoric Site">Prehistoric Site</option>
-                <option value="Promenade">Promenade</option>
-                <option value="Race Track">Race Track</option>
-                <option value="Religious Complex">Religious Complex</option>
-                <option value="Religious Shrine">Religious Shrine</option>
-                <option value="Religious Site">Religious Site</option>
-                <option value="River Island">River Island</option>
-                <option value="Rock Carvings">Rock Carvings</option>
-                <option value="Scenic Area">Scenic Area</option>
-                <option value="Scenic Point">Scenic Point</option>
-                <option value="Science">Science</option>
-                <option value="Sculpture Garden">Sculpture Garden</option>
-                <option value="Shrine">Shrine</option>
-                <option value="Site">Site</option>
-                <option value="Ski Resort">Ski Resort</option>
-                <option value="Spiritual Center">Spiritual Center</option>
-                <option value="Sunrise Point">Sunrise Point</option>
-                <option value="Suspension Bridge">Suspension Bridge</option>
-                <option value="Tea Plantation">Tea Plantation</option>
-                <option value="Temple">Temple</option>
-                <option value="Theme Park">Theme Park</option>
-                <option value="Tomb">Tomb</option>
-                <option value="Township">Township</option>
-                <option value="Trekking">Trekking</option>
-                <option value="Urban Development Project">Urban Development Project</option>
-                <option value="Valley">Valley</option>
-                <option value="Viewpoint">Viewpoint</option>
-                <option value="Village">Village</option>
-                <option value="Vineyard">Vineyard</option>
-                <option value="Waterfall">Waterfall</option>
-                <option value="Wildlife Sanctuary">Wildlife Sanctuary</option>
-                <option value="Zoo">Zoo</option>      
-            </select>
-
-        <label for="g_rating">Google Rating</label>
-            <select id="g_rating" name="g_rating">
-              <option value="0"></option>
-                <option value="1.0">Above 1.0</option>
-                <option value="2.0">Above 2.0</option>
-                <option value="3.0">Above 3.0</option>
-                <option value="4.0">Above 4.0</option>
-            </select>
-
-            <button type="submit" value="Submit">Submit</button>
-        </form>
-    </div>
-       </div>
-       </section>
-
 <!----------------------------------------------------------------------END OF HOMEPAGE-->
 
 
@@ -364,87 +339,77 @@ if (isset($_SESSION['username'])) {
     <h3>Let Us Know Your Interests</h3>
             <label for="region">Region:</label>
             <select id="region" name="region">
+            <option value=""></option>
                 <option value="South India">South India</option>
                 <option value="North India">North India</option>
                 <option value="West India">West India</option>
                 <option value="East India">East India</option> 
                 <option value="Central India">Central India</option>                
             </select>
-            <label for="type">Type</label>
-            <select id="type" name="type">
-                <option value="Amusement Park">Amusement Park</option>
-                <option value="Aquarium">Aquarium</option>
-                <option value="Beach">Beach</option>
-                <option value="Bird Sanctuary">Bird Sanctuary</option>
-                <option value="Border Crossing">Border Crossing</option>
-                <option value="Botanical Garden">Botanical Garden</option>
-                <option value="Cave">Cave</option>
-                <option value="Church">Church</option>
-                <option value="Commercial Complex">Commercial Complex</option>
-                <option value="Confluence">Confluence</option>
-                <option value="Cricket Ground">Cricket Ground</option>
-                <option value="Cultural">Cultural</option>
-                <option value="Dam">Dam</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Film Studio">Film Studio</option>
-                <option value="Fort">Fort</option>
-                <option value="Ghat">Ghat</option>
-                <option value="Government Building">Government Building</option>
-                <option value="Gravity Hill">Gravity Hill</option>
-                <option value="Gurudwara">Gurudwara</option>
-                <option value="Hill">Hill</option>
-                <option value="Historical">Historical</option>
-                <option value="Island">Island</option>
-                <option value="Lake">Lake</option>
-                <option value="Landmark">Landmark</option>
-                <option value="Mall">Mall</option>
-                <option value="Market">Market</option>
-                <option value="Mausoleum">Mausoleum</option>
-                <option value="Memorial">Memorial</option>
-                <option value="Monastery">Monastery</option>
-                <option value="Monument">Monument</option>
-                <option value="Mosque">Mosque</option>
-                <option value="Mountain Peak">Mountain Peak</option>
-                <option value="Museum">Museum</option>
-                <option value="National Park">National Park</option>
-                <option value="Natural Feature">Natural Feature</option>
-                <option value="Observatory">Observatory</option>
-                <option value="Orchard">Orchard</option>
-                <option value="Palace">Palace</option>
-                <option value="Park">Park</option>
-                <option value="Prehistoric Site">Prehistoric Site</option>
-                <option value="Promenade">Promenade</option>
-                <option value="Race Track">Race Track</option>
-                <option value="Religious Complex">Religious Complex</option>
-                <option value="Religious Shrine">Religious Shrine</option>
-                <option value="Religious Site">Religious Site</option>
-                <option value="River Island">River Island</option>
-                <option value="Rock Carvings">Rock Carvings</option>
-                <option value="Scenic Area">Scenic Area</option>
-                <option value="Scenic Point">Scenic Point</option>
-                <option value="Science">Science</option>
-                <option value="Sculpture Garden">Sculpture Garden</option>
-                <option value="Shrine">Shrine</option>
-                <option value="Site">Site</option>
-                <option value="Ski Resort">Ski Resort</option>
-                <option value="Spiritual Center">Spiritual Center</option>
-                <option value="Sunrise Point">Sunrise Point</option>
-                <option value="Suspension Bridge">Suspension Bridge</option>
-                <option value="Tea Plantation">Tea Plantation</option>
-                <option value="Temple">Temple</option>
-                <option value="Theme Park">Theme Park</option>
-                <option value="Tomb">Tomb</option>
-                <option value="Township">Township</option>
-                <option value="Trekking">Trekking</option>
-                <option value="Urban Development Project">Urban Development Project</option>
-                <option value="Valley">Valley</option>
-                <option value="Viewpoint">Viewpoint</option>
-                <option value="Village">Village</option>
-                <option value="Vineyard">Vineyard</option>
-                <option value="Waterfall">Waterfall</option>
-                <option value="Wildlife Sanctuary">Wildlife Sanctuary</option>
-                <option value="Zoo">Zoo</option>      
-            </select>
+      <label for="type">Type</label>
+        <div class="search-container">
+        <input type="text" id="searchInput" name="type" class="search-input" placeholder="Eg: temple,beach,park..." autocomplete="off">
+        <div id="dropdownList" class="dropdown-list hidden"></div>
+    </div>
+
+    <script>
+        const options = [
+            "Amusement Park", "Aquarium", "Beach", "Bird Sanctuary", "Border Crossing", 
+            "Botanical Garden", "Cave", "Church", "Commercial Complex", "Confluence", 
+            "Cricket Ground", "Cultural", "Dam", "Entertainment", "Film Studio", 
+            "Fort", "Ghat", "Government Building", "Gravity Hill", "Gurudwara", 
+            "Hill", "Historical", "Island", "Lake", "Landmark", 
+            "Mall", "Market", "Mausoleum", "Memorial", "Monastery", 
+            "Monument", "Mosque", "Mountain Peak", "Museum", "National Park", 
+            "Natural Feature", "Observatory", "Orchard", "Palace", "Park", 
+            "Prehistoric Site", "Promenade", "Race Track", "Religious Complex", 
+            "Religious Shrine", "Religious Site", "River Island", "Rock Carvings", 
+            "Scenic Area", "Scenic Point", "Science", "Sculpture Garden", "Shrine", 
+            "Site", "Ski Resort", "Spiritual Center", "Sunrise Point", "Suspension Bridge", 
+            "Tea Plantation", "Temple", "Theme Park", "Tomb", "Township", 
+            "Trekking", "Urban Development Project", "Valley", "Viewpoint", "Village", 
+            "Vineyard", "Waterfall", "Wildlife Sanctuary", "Zoo"
+        ];
+
+        const searchInput = document.getElementById("searchInput");
+        const dropdownList = document.getElementById("dropdownList");
+
+        // Function to update the dropdown based on the search input
+        function updateDropdown() {
+            const query = searchInput.value.toLowerCase();
+            const filteredOptions = options
+                .filter(option => option.toLowerCase().includes(query))
+                .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+            
+            dropdownList.innerHTML = ""; // Clear existing options
+
+            if (filteredOptions.length > 0) {
+                dropdownList.classList.remove("hidden");
+                filteredOptions.forEach(option => {
+                    const div = document.createElement("div");
+                    div.className = "dropdown-item";
+                    div.textContent = option;
+                    div.onclick = () => {
+                        searchInput.value = option; // Set input value on click
+                        dropdownList.classList.add("hidden"); // Hide dropdown
+                    };
+                    dropdownList.appendChild(div);
+                });
+            } else {
+                dropdownList.classList.add("hidden");
+            }
+        }
+
+        // Event listener for input changes
+        searchInput.addEventListener("input", updateDropdown);
+
+        // Close dropdown if clicked outside
+        document.addEventListener("click", (e) => {
+            if (!document.querySelector(".search-container").contains(e.target)) {
+                dropdownList.classList.add("hidden");
+            }
+        });
+    </script>
 
         <label for="g_rating">Google Rating</label>
             <select id="g_rating" name="g_rating">
@@ -605,7 +570,7 @@ if (isset($_SESSION['username'])) {
 <section id="rateus" class="content-section">
 <div class="rate-content">
     <form class="rate-form" action="rate.php" method="POST">
-        <h2>Will you give us a rating?</h2>
+        <h2 class="ask-rating">Will you give us a rating?</h2>
         <!-- Star Rating -->
         <div class="rating">
             <input type="radio" name="rating" value="5" id="star5"><label for="star5">&#9733;</label>

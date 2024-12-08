@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include 'connect.php';
 $user_id = $_SESSION['user_id'];
 $username = $_SESSION['username'];
@@ -10,6 +12,7 @@ if (isset($_POST['set_budget'])) {
     $sql = "UPDATE user_data SET budget = $budget, balance = $budget WHERE user_id = $user_id";
     $conn->query($sql);
 }
+/*
 // Add Expense
 if (isset($_POST['add_expense'])) {
     $title = $_POST['title'];
@@ -24,6 +27,7 @@ if (isset($_POST['add_expense'])) {
     $update_balance_sql = "UPDATE user_data SET balance = balance - $amount WHERE user_id = $user_id";
     $conn->query($update_balance_sql);
 }
+*/
 
 // Get User Data
 $userQuery = $conn->query("SELECT budget, balance FROM user_data WHERE user_id = $user_id");
@@ -46,6 +50,46 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Tracker</title>
     <link rel="stylesheet" href="budgettracker.css">
+    <script>
+        // Intercept the form submission
+$("#expenseForm").submit(function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Collect form data
+    const formData = $(this).serialize();
+
+    // Send data to budget.php via AJAX
+    $.ajax({
+        url: "budget.php", // Path to your PHP handler
+        type: "POST",
+        data: formData,
+        dataType: "json", // Expect JSON response from the server
+        success: function (data) {
+            if (data.success) {
+                // Append the new expense to the table
+                const expenseList = $("#expenseList");
+                const newRow = `
+                    <tr>
+                        <td>${data.expense.title}</td>
+                        <td>${data.expense.description}</td>
+                        <td>${data.expense.amount}</td>
+                    </tr>`;
+                expenseList.append(newRow);
+
+                // Clear the form inputs
+                $("#expenseForm")[0].reset();
+            } else {
+                alert(data.error); // Display error if something went wrong
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("Error:", error);
+            alert("An error occurred while adding the expense.");
+        },
+    });
+});
+
+    </script>
 </head>
 <body>
     <div class="container">
@@ -89,7 +133,7 @@ $conn->close();
                 </div>
             </form>
 
-            <form method="POST" action="budget.php">
+            <form id="expenseform" method="POST" action="budget.php">
                 <div class="expense-input">
                     <div class="input-group">
                         <input type="text" name="title" placeholder="Expense Title" required>

@@ -3,51 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="locations.css">
+    <title>Place Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .back{
+            margin-left: 10px;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            width: 80%;
+        }
+        .btn button{
+            background-color: #a8c5e2;
+            color: #333;
+            width: 60px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .navbar{
+            padding: 0 40px;
+            background: linear-gradient(135deg, #02364b, #4320a4,#02364b);
+            color: #fff;
+            height: 15vh;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .profile{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-right: 10px;
+        }
+        .profile img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        img{
+            width: 400px;
+            height: 200px;
+            
+        }
+        .para{
+            margin: 20px;
+            text-align: justify;
+        }
+        .para-title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .place-img-weather {
+            width: 100%;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .place-img {
+            margin: 10px 0;
+        }
+        .wiki-image {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .about-place{
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+            padding: 20px;
+        }
+    .weather-widget {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+       }
+
+.card {
+    padding: 1.5rem;
+    background: linear-gradient(145deg, #d1e8ff, #c2aedf);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+    flex: 1;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card p {
+    font-size: 1.5rem;
+        color: #111;
+    }
+
+    </style>
 </head>
-
 <body>
-<header>
-    <div class="back-btn">
-        <a href="homeYathra.html"><i class="fas fa-arrow-left"></i> Return Home</a>
+    <div class="navbar">
+        <div class="btn">
+            <button class="btn-back"><i class="fas fa-arrow-left"></i></button>
     </div>
-
-    <div class="title">
-      YathraTales.co
+    <h2 class="para-title">YathraTales.co</h2>
+    <div class="profile">
+        <h3 class="profile-name">User</h3>
+        <img src="profile.png" alt="profile" class="profile-img">
     </div>
-</header> 
-<div class="loc-cardd">
-  <div class="loc-title">
-    <p class="name">Aruvikkuzhi</p>
-  </div>
-
-<img src="bungee.jpg" alt="Failed to load" class="image-class" /> 
-<p>State: Example State</p>
-<p>City: Example City</p>
-<p>Google Rating: 4.5</p>
-<p>Entry Fee: $10</p>
 </div>
-<div id="wikiInfo">
-    <h2 class="para-title">About city</h2>
-    
-    <div class="place-img-weather"> 
-        <div class="place-img">                
-            <img src="bungee.jpg" alt="Image of Example Location" class="wiki-image" />
+<div class="content">
+
+    <!-- Display image if available -->
+    <h2 class="para-title">Sample Place</h2>
+
+    <div class="place-img-weather">
+
+        <div class="place-img">
+            <img src="clouds.jpg" alt="Image of Sample Place" class="wiki-image" />
+        </div>
+
+    <div class="weather-widget">
+        <div class="part1">
+        <div class="card">
+            <h3>Temperature</h3>
+            <p id="temperature"><i class="fas fa-temperature-high"></i>33°C</p>
+        </div>
+        <div class="card">
+            <h3>Weather</h3>
+            <p id="weather"><i class="fas fa-cloud"></i>Cloudy</p>
         </div>
     </div>
-
-    <div id="weatherInfo" class="place-weather">
-        <h3>Weather in City, Country</h3>
-        <p><strong>Temperature:</strong> 25°C</p>
-        <p><strong>Weather:</strong> Clear Sky</p>
-        <p><strong>Humidity:</strong> 60%</p>
-        <p><strong>Wind Speed:</strong> 5 m/s</p>
+    <div class="part2">
+        <div class="card">
+            <h3>Humidity</h3>
+            <p id="humidity"><i class="fas fa-water"></i>60%</p>
+        </div>
+        <div class="card">
+            <h3>Wind Speed</h3>
+            <p id="windSpeed"><i class="fas fa-wind"></i>10 m/s</p>
+        </div>
     </div>
-
-    <h2>About city</h2>
-    <p class="para">This is a static example description of the city. Replace this with actual content about the city.</p>
+    </div>
+</div>
+<div class="about-place">
+    <h2 class="para-title">About city</h2>
+    <p class="para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quisquam, quos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quisquam, quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quisquam, quos.</p>
 </div>
 
+</div>
 </body>
 </html>

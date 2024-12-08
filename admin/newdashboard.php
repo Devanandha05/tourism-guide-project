@@ -33,7 +33,7 @@
             <span>Admin</span>    
         <form class="logout" action="logout.php" method="post">
           <button class="logout-btn" type="submit" name="logout">
-          <img src="logout-btn.png">
+          <span>Logout</span>
           </button>
         </form>
         </div>

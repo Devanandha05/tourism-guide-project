@@ -1,11 +1,10 @@
 :root{
-    --primary:#763626;
-    --hover:#5b291c;
+    --primary:#08453b;
+    --hover:#025244;
     --second:#5f2d21;
     --lightbg:rgb(150, 191, 225); 
     --link: #26272Bff;
     --bg:#f4fffc;
---dark: #392F2Dff;
 }
 body{
     font-family: poppins;

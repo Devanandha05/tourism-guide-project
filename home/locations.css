@@ -42,6 +42,79 @@ header{
     padding: 30px 15px;
 
 }
+/* General styling for the weather section */
+#weatherInfo {
+    background-color: #f0f8ff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    max-width: 50%;
+}
+
+#weatherInfo h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Styling for each forecast card */
+.forecast {
+    background-color: #e0f7fa;
+    border-left: 5px solid #00796b;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect for forecast cards */
+.forecast:hover {
+    transform: translateY(-5px);
+    background-color: #b2dfdb;
+}
+
+/* Individual elements inside forecast */
+.forecast p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.forecast strong {
+    color: #00796b;
+}
+
+/* Date & time styling */
+.forecast p:first-child {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    #weatherInfo {
+        padding: 15px;
+    }
+    
+    .forecast {
+        padding: 10px;
+    }
+
+    #weatherInfo h3 {
+        font-size: 20px;
+    }
+
+    .forecast p {
+        font-size: 14px;
+    }
+
+    .forecast p:first-child {
+        font-size: 16px;
+    }
+}
+
 .wikiInfo{
     display: flex;
     flex-direction: column;
@@ -69,10 +142,16 @@ header{
 }
 
 .place-weather{
+    display: flex;
+    gap: 5px;
     background-color: var(--bg);
     padding: 20px;
     border-radius: 20px;
     min-width: 200px;
+}
+.forecast-list{
+    display: flex;
+    gap: 5px;
 }
 .para-title{
     text-align: center;
@@ -81,6 +160,9 @@ header{
 .para{
     line-height: 1.5;
     font-size: 18px;
+}
+.title,.res-title{
+    color: var(--whitetext);
 }
 .title{
     font-size: 2rem;
@@ -108,7 +190,8 @@ text-decoration: underline;
 
 
 .container {
-    margin: 20px 10px;
+    max-width: 700px;
+    margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -176,7 +259,37 @@ text-decoration: underline;
 
   align-items: center;
 }
+.google-rating-box {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 10px auto;
+}
 
+.google-rating-stars {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.rating-star-bg {
+    font-size: 24px;
+    color: #ddd; /* Grey background for unfilled stars */
+}
+
+.rating-star-filled {
+    color: gold; /* Gold color for filled stars */
+    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
 .wishlist-icon {
     cursor: pointer;
     font-size: 24px;
@@ -210,14 +323,13 @@ text-decoration: underline;
 }
 button{
     font-size: 16px;
-    text-decoration: underline;
     width: 300px;
     margin: 8px 5px;
     border-radius: 10px;
     padding: 10px 20px;
     border: none;
-    background:transparent;
-    color: #333;
+    background:var(--primary);
+    color: var(--whitetext);
 
     transition: 0.3s ease;
 }
