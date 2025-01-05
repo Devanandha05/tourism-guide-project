@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourist Locations</title>
-    <link rel="stylesheet" href="locations.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="locations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
   <script>
@@ -13,7 +13,6 @@
     const isFavorite = element.classList.contains('favorite'); // Check if already a favorite
     const action = isFavorite ? 'remove' : 'add'; // Toggle action
 
-    // AJAX request to the server
     fetch('wishlist.php', {
       method: 'POST',
       headers: {
@@ -40,9 +39,9 @@
 
 <body>  
 <header>
-    <div class="back-btn">
+    <!--<div class="back-btn">
         <a href="homeYathra.php"><i class="fas fa-arrow-left"></i></a>
-    </div>
+    </div>-->
     <div class="title">
         YathraTales.co
     </div>
@@ -97,34 +96,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 
                 echo "<img src='" . htmlspecialchars($row['image_url']) . "' alt='Failed to load' class='image-class' />"; 
             echo "</div>";
+            ?>
             
-            echo "<div class='details'>";
-            echo "<div class='google-rating-box'>
-                <div class='google-rating-stars'>";
-                    $rating = htmlspecialchars($row['g_rating']);
-                    $fullStars = floor($rating); // Full stars
-                    $partialStarWidth = ($rating - $fullStars) * 100; // Partial star width as percentage
-                    $maxStars = 5; // Maximum number of stars
-            
-                    // Display background stars
-                    for ($i = 0; $i < $maxStars; $i++) {
-                        echo '<span class="rating-star-bg">★</span>';
-                    }
-            
-                    // Overlay filled stars
-                    echo '<div class="rating-star-filled" style="width: ' . min($partialStarWidth + $fullStars * 20, 100) . '%;">';
-                    for ($i = 0; $i < $maxStars; $i++) {
-                        echo '<span class="rating-star-bg">★</span>';
-                    }
-                    echo "</div>
-                </div>
-                <span>";
-                 echo  $rating."</span>";
+        <div class="details">
+        <div class="google-rating-box">
+        <div class="google-rating-stars">
+         <?php
+          $rating = htmlspecialchars($row['g_rating']);
+        echo $rating."<span class='rating-star-filled'>★</span>";
+        ?>
+         </div>
+         <?php
          $reviewCount = htmlspecialchars($row['g_reviewcount']); // Original review count
          $reviewCountInThousands = $reviewCount*1000; // Convert to thousands
      
          // Format the value with one decimal point and append "K"
-         echo "<p>  from " . number_format($reviewCountInThousands, 1) . "K reviews</p>";
+         echo "<p class='rating-text'>  from " . number_format($reviewCountInThousands, 1) . "K reviews</p>";
      
             echo "</div>";
             echo "<p>State: " . htmlspecialchars($row['state']) . "</p>";

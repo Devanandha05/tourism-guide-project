@@ -166,5 +166,9 @@ a:hover{
     text-decoration: underline;
 }
 .error{
+    width: 430px;
+background-color: #f8ede9;
+padding: 10px;
+border-radius: 40px;
  color: red;
 }

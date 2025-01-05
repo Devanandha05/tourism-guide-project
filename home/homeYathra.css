@@ -1,8 +1,5 @@
-
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
-
 
 :root{
   --primary:#08453b;
@@ -360,7 +357,16 @@ h4{
   }
 }
 /*------------------------------------------------------------------------------------------------------------------------*/
+.map-section{
+  margin: auto;
+  width: 600px;
+  background-color: #08453b;
+}
 
+.map-section h1{
+  text-align: center;
+  font-size: 25px;
+}
 /*--LOCATIONS--*/
 
 .locations {
@@ -400,83 +406,6 @@ p .first{
     text-align: justify;
 }
 /*-------------------------*/
-
-/*------------------------------------------------------------------------------------------------------------------------*/
-#services{
-  margin: 0;
-  padding-bottom: 60px;
-}
- #services .container {
-  height: 100%;
-  padding: 0px 8%;
-}
-
-#services .container h1 {
-  font-size: 2em;
-  text-align: center;
-  padding-top: 10%;
-  margin-bottom: 60px;
-  font-weight: 400;
-  position: relative;
-}
-
-#services .container h1::after {
-  content: '';
-  color: #fff;
-  background: var(--primary);
-  width: 100px;
-  height: 5px;
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-#services p a{
-  font-size: 20px;
-  color: #333;
-  text-decoration: none;
-
-}
-#services p a:hover{
-  color: var(--bg);
-  text-decoration: underline;
-}
-.row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 40px;
-}
-
-.service {
-  text-align: center;
-  padding: 25px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  background: transparent;
-  transition: transform 0.5s, background 0.5s;
-}
-
-.service i {
-  font-size: 40px;
-  margin-bottom: 10px;
-  color: var(--primary);
-}
-
-.service h2 {
-  font-weight: 400;
-  margin-bottom: 8px;
-}
-
-.service:hover {
-  background: var(--primary);
-  color: #fff;
-  transform: scale(1.05);
-}
-
-.service:hover i {
-  color: #fff;
-}
 /*-----------------------------------------------------------------------------------------------------------ABOUT US--*/
 
 #aboutus{
@@ -724,7 +653,7 @@ img{
 
 /*--CONTACT US--*/
 
-#contactus,#rateus{
+#contactus{
   margin-top: 50px;
   padding: 30px 0 6rem;
     background-color: var(--bg);
@@ -881,31 +810,94 @@ font-size: 40px;
 
 
 /* RATING SECTION */
-.rateus{
-  background-color: #fff;
 
-}
-.rate-content{
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  height: 600px;
-  background-color: var(--primary);
-  border-radius: 35px;
-  padding: 30px;
-
-}
-.rating {
+#rateus {
+  background-color: #f0f4f8;
+  padding: 40px 20px;
   display: flex;
   justify-content: center;
-  flex-direction: row-reverse;
-}
-.rate-form{
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
+
+.rate-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.rate-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.rating label {
+  font-size: 40px;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #ffc107;
+}
+
+.rating input#star5:checked ~ label,
+.rating input#star4:checked ~ label,
+.rating input#star3:checked ~ label,
+.rating input#star2:checked ~ label,
+.rating input#star1:checked ~ label {
+  color: #ff9900;
+}
+
+button {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rate-content {
+      padding: 20px;
+  }
+  
+  .rate-form h2 {
+      font-size: 20px;
+  }
+  
+  .rating label {
+      font-size: 35px;
+  }
+  
+  button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
+
 .rating input {
   display: none; /* Hide radio buttons */
 }
@@ -917,36 +909,26 @@ font-size: 40px;
   transition: 0.3s ease;
 }
 
-.rating label:hover,
-.rating label:hover ~ label {
-  color: gold;
+/* Responsive */
+@media (max-width: 600px) {
+  .rate-content {
+      padding: 20px;
+  }
+  
+  .rate-form h2 {
+      font-size: 20px;
+  }
+  
+  .rating label {
+      font-size: 35px;
+  }
+  
+  button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
 }
 
-.rating input:checked ~ label {
-  color: gray;
-}
-
-.rating input:checked + label,
-.rating input:checked + label ~ label {
-  color: gold;
-}
-
-/* Submit button styling */
-button {
-
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
 textarea{
   background-color: transparent;
   color: #333;

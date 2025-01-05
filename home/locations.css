@@ -42,16 +42,11 @@ header{
     padding: 30px 15px;
 
 }
-/* General styling for the weather section */
-#weatherInfo {
-    background-color: #f0f8ff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    max-width: 50%;
+#wikiInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 #weatherInfo h3 {
     text-align: center;
     font-size: 24px;
@@ -118,7 +113,6 @@ header{
 .wikiInfo{
     display: flex;
     flex-direction: column;
-    color: var(--whitetext);
     width:70%;
     margin: 30px auto;
 }
@@ -138,21 +132,30 @@ header{
     gap: 20px;
 }
 .place-img{
-    height: 100%;
+    width: 460px;
+    height: 440px;
 }
 
 .place-weather{
     display: flex;
+    flex-direction: column;
     gap: 5px;
     background-color: var(--bg);
     padding: 20px;
     border-radius: 20px;
-    min-width: 200px;
+    background-color: #f0f8ff;
+    width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .forecast-list{
     display: flex;
     gap: 5px;
 }
+.about-city{
+    font-size: 30px;
+    margin: 0 30px;
+}
+
 .para-title{
     text-align: center;
     font-size: 32px;
@@ -187,7 +190,9 @@ header{
 text-decoration: underline;
 }
 
-
+.rating-text{
+    font-size: 12px;
+}
 
 .container {
     max-width: 700px;

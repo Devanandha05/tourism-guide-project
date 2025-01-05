@@ -12,7 +12,7 @@ if (isset($_POST['set_budget'])) {
     $sql = "UPDATE user_data SET budget = $budget, balance = $budget WHERE user_id = $user_id";
     $conn->query($sql);
 }
-/*
+
 // Add Expense
 if (isset($_POST['add_expense'])) {
     $title = $_POST['title'];
@@ -27,7 +27,7 @@ if (isset($_POST['add_expense'])) {
     $update_balance_sql = "UPDATE user_data SET balance = balance - $amount WHERE user_id = $user_id";
     $conn->query($update_balance_sql);
 }
-*/
+
 
 // Get User Data
 $userQuery = $conn->query("SELECT budget, balance FROM user_data WHERE user_id = $user_id");
@@ -68,12 +68,12 @@ $("#expenseForm").submit(function (e) {
             if (data.success) {
                 // Append the new expense to the table
                 const expenseList = $("#expenseList");
-                const newRow = `
+                const newRow = 
                     <tr>
                         <td>${data.expense.title}</td>
                         <td>${data.expense.description}</td>
                         <td>${data.expense.amount}</td>
-                    </tr>`;
+                    </tr>;
                 expenseList.append(newRow);
 
                 // Clear the form inputs

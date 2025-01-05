@@ -26,11 +26,7 @@ if (isset($_GET['location_name'])) {
     
     // Wikipedia API URL
     $url = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts|pageimages&exintro=&explaintext=&format=json&titles=" . urlencode($place) . "&pithumbsize=500";
-
-    // Fetch data from the Wikipedia API
     $response = file_get_contents($url);
-
-    // Check if the response was fetched
     if ($response !== false) {
         // Convert JSON response to PHP array
         $data = json_decode($response, true);
@@ -46,7 +42,6 @@ if (isset($_GET['location_name'])) {
 
                 // Display the extracted content
                 echo "<h2 class='para-title'>$place</h2>";
-                
                 // Extract image content (thumbnail)
                 if (isset($page['thumbnail']['source'])) {
                     $imageUrl = $page['thumbnail']['source'];
@@ -56,7 +51,7 @@ if (isset($_GET['location_name'])) {
                     echo "<img src='$imageUrl' alt='Image of $place' class='wiki-image' />";
                     echo "</div>";
                 } else {
-                    echo "<h3>No image available for this location.</h3>";
+                    echo "<p>No image available for this location.</p>";
                 }
 
                 // Fetch weather data using OpenWeatherMap API
@@ -106,6 +101,7 @@ if (isset($_GET['location_name'])) {
                 } else {
                     echo "<h3>Failed to fetch weather data.</h3>";
                 }
+              echo "  </div>";
                 echo "<div class='about-city'>";
                 echo "<h2>About city</h2>";
                 echo "<p class='para'>$extract</p>";

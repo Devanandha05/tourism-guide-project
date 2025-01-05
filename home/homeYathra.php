@@ -31,6 +31,14 @@ if (isset($_SESSION['username'])) {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="slide.js" ></script>
 <link rel="stylesheet" href="slide.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+margin: auto;
+            height: 700px;
+            width: 90%;
+        }
+    </style>
 
     <script>
       function showSection(sectionId) {
@@ -86,92 +94,6 @@ if (isset($_SESSION['username'])) {
 </div>
 
 <!-- POPULAR LOCATIONS -->
- <section id="carousel" class="img-carousel">
-<div class="carousel">
-    <div class="carousel__nav">
-     <span id="moveLeft" class="carousel__arrow">
-          <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
-      <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-  </svg>
-      </span>
-      <span id="moveRight" class="carousel__arrow" >
-        <svg class="carousel__icon"  width="24" height="24" viewBox="0 0 24 24">
-    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-  </svg>    
-      </span>
-    </div>
-    <div class="carousel-item carousel-item--1">
-      <div class="carousel-item__image"></div>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-        <h2 class="carousel-item__subtitle">Kashmir </h2>
-        <h1 class="carousel-item__title">Taj Mahal</h1>
-        </h1>
-        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        <a href="#" class="carousel-item__btn">Explore the tour</a>
-          </div>
-      </div>
-    </div>
-    <div class="carousel-item carousel-item--2">
-      <div class="carousel-item__image"></div>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-        <h2 class="carousel-item__subtitle">New Delhi </h2>
-        <h1 class="carousel-item__title">Lotus Temple</h1>
-        <p class="carousel-item__description">Clear Glass Window With Brown and White Wooden Frame iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-        <a href="#" class="carousel-item__btn">Read the article</a>
-          </div>
-      </div>
-    </div>
-      <div class="carousel-item carousel-item--3">
-      <div class="carousel-item__image"></div>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-        <h2 class="carousel-item__subtitle">Goa</h2>
-        <h1 class="carousel-item__title">Beach</h1>
-        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        <a href="#" class="carousel-item__btn">Explore the palms</a>
-          </div>
-      </div>
-    </div>
-    
-     <div class="carousel-item carousel-item--4">
-      <div class="carousel-item__image"></div>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-        <h2 class="carousel-item__subtitle">Kerala </h2>
-        <h1 class="carousel-item__title">Munnar </h1>
-        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        <a href="#" class="carousel-item__btn">Explore the beach</a>
-          </div>
-      </div>
-    </div>
-    
-   <div class="carousel-item carousel-item--5">
-      <div class="carousel-item__image"></div>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-        <h2 class="carousel-item__subtitle">Nepal </h2>
-        <h1 class="carousel-item__title">Kathmandu</h1>
-        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        <a href="#" class="carousel-item__btn">Read the article</a>
-          </div>
-      </div>
-    </div>
-    
-    <div class="carousel-item carousel-item--6">
-      <div class="carousel-item__image"></div>
-      <div class="carousel-item__info">
-        <div class="carousel-item__container">
-        <h2 class="carousel-item__subtitle">Tamil Nadu</h2>
-        <h1 class="carousel-item__title">Adiyogi Shiva Statue</h1>
-        <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        <a href="#" class="carousel-item__btn">Read the article</a>
-          </div>
-      </div>
-    </div>
-  </div>
-  </section>
 <section id="locations">
   <section class="locations">
       <h2>Popular Locations</h2> 
@@ -210,42 +132,79 @@ if (isset($_SESSION['username'])) {
   </section>
 </section>
 
-<!---------------------------------------------------------------------------------------------SERVICE SECTION-------------
-<section id="services">
-<div class="container">
-      <h1>Our Services</h1>
-      <div class="row">
-        <div class="service">
-          <i class="fas fa-laptop-code"></i>
-          <h2>Explore India</h2>
-          <p>
-          <a href="#" onclick="showSection('exploreind')">Explore Now</a>
-          </p>
-        </div>
-       <div class="service">
-          <i class="fas fa-chart-line"></i>
-          <h2>Personalized Travel Plan</h2>
-          <p>
-          <a href="#" onclick="showSection('travel-plan')">Get Now</a>
-          </p>
-        </div>
-        <div class="service">
-          <i class="fab fa-sketch"></i>
-          <h2>Travel Budget Tracker</h2>
-          <p>
-          <a href="#" onclick="showSection('budget-tracker')">Budget Tracker</a>
-          </p>
-        </div>
-        <div class="service">
-          <i class="fas fa-database"></i>
-          <h2>Emergency Contact Details</h2>
-          <p>
-          <a href="#" onclick="showSection('emergency')">Get Contact Details</a>
-          </p>
-        </div>
-      </div>
-    </div>
-</section>
+<!-------------------------------------------------------------------------------------SERVICE SECTION------------>
+<div class="map-section">
+<h1>Interactive Map of India with Destination Spots</h1>
+<div id="map"> </div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    // Initialize the map and set its view to India
+    var map = L.map('map').setView([22.5937, 78.9629], 5);  // Centered on India
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+
+    // Array of destination spots with their latitude, longitude, name, and type
+    var destinations = [
+        { lat: 28.6139, lon: 77.2295, name: "India Gate", type: "Monument", state: "Delhi" },
+        { lat: 28.5933, lon: 77.2507, name: "Humayun's Tomb", type: "Tomb", state: "Delhi" },
+        { lat: 28.6127, lon: 77.2773, name: "Akshardham Temple", type: "Temple", state: "Delhi" },
+        { lat: 28.609690, lon:77.232240, name: "Waste to Wonder Park", type: "Theme Park", state: "Delhi" },
+        { lat: 28.6505331, lon:77.2303369, name: "Chandni Chowk", type: "Theme Park", state: "Delhi" },
+        { lat: 28.6104, lon: 77.2315, name: "Jantar Mantar", type: "Observatory", state: "Delhi" },
+        { lat: 19.0760, lon: 72.8777, name: "Marine Drive", type: "Beach", state: "Mumbai" },
+        { lat: 19.0896, lon: 72.8656, name: "Gateway of India", type: "Monument", state: "Mumbai" },
+        { lat: 15.5566, lon: 73.7536, name: "Calangute Beach", type: "Beach", state: "Goa" },
+        { lat: 12.9716, lon: 77.5946, name: "Bangalore Palace", type: "Palace", state: "Bangalore" },
+        { lat: 17.3850, lon: 78.4867, name: "Charminar", type: "Monument", state: "Hyderabad" },
+        { lat: 22.5726, lon: 88.3639, name: "Victoria Memorial", type: "Monument", state: "Kolkata" },
+        { lat: 27.1739, lon: 78.0421, name: "Taj Mahal", type: "Monument", state: "Agra" },
+        { lat: 22.2587, lon: 71.1924, name: "Statue of Unity", type: "Monument", state: "Kevadia" },
+        { lat: 26.9124, lon: 75.7873, name: "Hawa Mahal", type: "Palace", state: "Jaipur" },
+        { lat: 31.6340, lon: 74.8723, name: "Golden Temple", type: "Temple", state: "Amritsar" },
+        { lat: 10.0578407, lon:77.0660813, name: "Munnar Tea Gardens", type: "Nature", state: "Munnar" },
+        { lat: 28.7040592, lon:77.10249019999999 , name: "Belur Math", type: "Site", state: "Kolkota" },
+        { lat:8.3837841 , lon:76.98041760000001 , name: "Kovalam Beach", type: "Beach", state: "Kerala" },
+        { lat:10.850516, lon:76.271083, name: "Athirappilly Falls", type: "Waterfall", state: "Kerala" },
+        { lat:9.939093, lon:76.259644, name: "Fort Kochi", type: "Heritage Site", state: "Kerala" },
+        { lat:9.273817, lon:77.006612, name: "Munnar", type: "Hill Station", state: "Kerala" },
+        { lat:10.536421, lon:76.214217, name: "Guruvayur Temple", type: "Religious Site", state: "Kerala" },
+        { lat:9.591566, lon:76.522154, name: "Alleppey Backwaters", type: "Backwaters", state: "Kerala" },
+        { lat:11.872033, lon:75.370367, name: "Bekal Fort", type: "Fort", state: "Kerala" },
+{ lat:8.895266, lon:76.614134, name: "Poovar Island", type: "Island", state: "Kerala" },
+{ lat:10.018498, lon:76.331147, name: "Mattancherry Palace", type: "Heritage Site", state: "Kerala" },
+{ lat:9.264422, lon:76.779511, name: "Kumarakom Bird Sanctuary", type: "Wildlife Sanctuary", state: "Kerala" },
+{ lat:11.407554, lon:76.709881, name: "Wayanad Wildlife Sanctuary", type: "Wildlife Sanctuary", state: "Kerala" },
+{ lat:9.888108, lon:76.683394, name: "Thattekad Bird Sanctuary", type: "Wildlife Sanctuary", state: "Kerala" },
+{ lat:10.133645, lon:77.124676, name: "Periyar Wildlife Sanctuary", type: "Wildlife Sanctuary", state: "Kerala" },
+{ lat:11.216244, lon:75.937667, name: "Kozhikode Beach", type: "Beach", state: "Kerala" },
+        { lat:15.5552787 , lon:73.7517307 , name: "Baga Beach", type: "Beach", state: "Goa" }, 
+        { lat:15.6046375 , lon:73.7369631 , name: "Chapora Fort", type: "Fort", state: "Goa" }, 
+        { lat:23.0606577 , lon:72.5803299 , name: "Sabarmati Ashram", type: "Historical", state: "Gujarat" }, 
+        { lat:23.8412898 , lon:69.52255989999999 , name: "White Desert", type: "Site", state: "Gujarat" }, 
+        { lat:31.61998029999999 , lon:74.8764849 , name: "Golden Temple", type: "Temple", state: "Punjab" }, 
+        { lat:22.4750994 , lon:78.4072546, name: "Bee Falls", type: "Waterfall", state: "Madhya Pradesh" }, 
+        { lat:19.8875953 , lon:86.0945364, name: "Sun Temple", type: "Temple", state: "Odisha" }
+
+  ]
+
+    // Function to add a marker with a label (popup) for each location
+    function addMarker(lat, lon, name, type, state) {
+        var marker = L.marker([lat, lon]).addTo(map);
+        marker.bindPopup("<b>" + name + "</b><br>" + type + "<br>" + state);
+    }
+
+    // Loop through each destination and add it to the map
+    destinations.forEach(function(destination) {
+        addMarker(destination.lat, destination.lon, destination.name, destination.type, destination.state);
+    });
+
+</script>
+</div>
 <!-----------------------------------------------------------------------End of services--->
 
 
@@ -339,7 +298,6 @@ if (isset($_SESSION['username'])) {
     <h3>Let Us Know Your Interests</h3>
             <label for="region">Region:</label>
             <select id="region" name="region">
-            <option value=""></option>
                 <option value="South India">South India</option>
                 <option value="North India">North India</option>
                 <option value="West India">West India</option>

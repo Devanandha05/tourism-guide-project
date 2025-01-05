@@ -74,10 +74,10 @@ body {
 
 .logo h1 {
     font-size: 1.5rem;
-    color: #4caf50;
+    color: #005245;
 }
 
-.logout-btn{
+.logout-btn,.location-btn{
     padding: 10px 20px;
     text-decoration: none;
     color: #ddd;
@@ -88,14 +88,14 @@ body {
     transition: 0.3s ease;
     background-color: #005245;
   }
-  .logout button:hover{
+  .logout button:hover,.location-btn:hover{
     background-color: #218838;
   }
 
 /* Main Content */
 .main-content {
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #f6f6f6;
     border-radius: 8px;
     overflow-y: auto;
 }
@@ -105,11 +105,12 @@ header {
 }
 
 header h2 {
-    color: #4caf50;
+    color:#005245;
     font-size: 1.5rem;
 }
 
 header p {
+    color: #005245;
     font-size: 1rem;
     margin-bottom: 10px;
 }
@@ -130,7 +131,7 @@ header p {
 }
 
 .tabs .active {
-    color: #4caf50;
+    color: #005245;
     font-weight: bold;
 }
 
@@ -155,11 +156,12 @@ header p {
 }
 
 .place-card .price {
-    color: #4caf50;
+    color:#005245;
     font-weight: bold;
 }
 
 .container {
+    background-color: #f6f6f6;
     max-width: 600px;
     margin: 0 auto;
     padding: 10px;
@@ -181,7 +183,7 @@ header p {
   .res-title{
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    background-color: var(--primary);
+    background-color: #005245;
     border-radius: 40px;
     width: 100%;
     padding:10px;
@@ -197,7 +199,7 @@ header p {
     justify-content: center;
     width: 90%;   /* 50% of the parent element's width */
     height: 30%;  /* 30% of the parent element's height */
-    background-color: var(--whitetext);
+    background-color:#ddd;
    margin: 15px 30px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -210,7 +212,6 @@ header p {
     justify-content: center;
     width: 60%;   
     height: 30%; 
-    background-color: var(--whitetext);
    margin: 15px 30px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -236,29 +237,16 @@ header p {
     border-radius: 10px;
     background: #f9f9f9;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
     margin: 10px auto;
 }
 
 .google-rating-stars {
     position: relative;
-    display: inline-flex;
-    width: 100%;
-    margin-right: 10px;
-}
-
-.rating-star-bg {
-    font-size: 24px;
-    color: #ddd; /* Grey background for unfilled stars */
 }
 
 .rating-star-filled {
     color: gold; /* Gold color for filled stars */
     font-size: 24px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
 }
 .wishlist-icon {
     cursor: pointer;
@@ -276,7 +264,7 @@ header p {
 
 /* Profile Section */
 .profile-section {
-    background-color: #ffffff;
+    background-color:#e9e6e6;
     padding: 20px;
     border-radius: 8px;
     display: flex;
@@ -287,6 +275,9 @@ header p {
 .profile-card {
     text-align: center;
     margin-bottom: 20px;
+    background-color: #f6f6f6;
+    padding: 40px;
+    border-radius: 15px;
 }
 
 .profile-card .avatar {
@@ -337,44 +328,33 @@ header p {
                                 </div>
                                 <div class="details">
                                     <div class="google-rating-box">
-                                        <div class="google-rating-stars">
-                                            <?php
-                                            $rating = htmlspecialchars($row['g_rating']);
-                                            $fullStars = floor($rating); // Full stars
-                                            $partialStarWidth = ($rating - $fullStars) * 100; // Partial star width as percentage
-                                            $maxStars = 5; // Maximum stars
-                                            for ($i = 0; $i < $maxStars; $i++) {
-                                                echo '<span class="rating-star-bg">★</span>';
-                                            }
-                                            echo '<div class="rating-star-filled" style="width: ' . min($partialStarWidth + $fullStars * 20, 100) . '%;">';
-                                            for ($i = 0; $i < $maxStars; $i++) {
-                                                echo '<span class="rating-star-bg">★</span>';
-                                            }
-                                            echo '</div>';
-                                            ?>
-                                        </div>
-                                        <span><?php echo $rating; ?></span>
-                                        <?php
-                                        $reviewCount = htmlspecialchars($row['g_reviewcount']) * 1000; // Convert to thousands
-                                        echo "<p>from " . number_format($reviewCount, 1) . "K reviews</p>";
-                                        ?>
-                                    </div>
-                                    <p>State: <?php echo htmlspecialchars($row['state']); ?></p>
-                                    <p>City: <?php echo htmlspecialchars($row['city']); ?></p>
-                                    <p>Entry Fee: <?php echo htmlspecialchars($row['entry_fee']); ?>&#8377;</p>
-                                    <p>Best time to visit: <?php echo htmlspecialchars($row['best_visit_time']); ?></p>
-                                    <form class="detail-btn" action="loc_details.php" method="get">
-                                        <input type="hidden" name="location_name" value="<?php echo htmlspecialchars($row['city']); ?>" />
-                                        <button type="submit" class="location-btn">More About City</button>
-                                    </form>
+                                    <div class="google-rating-stars">
+                                    <?php
+                                        $rating = htmlspecialchars($row['g_rating']);
+                                        echo $rating."<span class='rating-star-filled'>★</span>";
+                                    ?>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <p class="nothing">You have no favourite locations!</p>
-                <?php endif; ?>
-            </section>
+                                    <?php
+                                    $reviewCount = htmlspecialchars($row['g_reviewcount']) * 1000; // Convert to thousands
+                                    echo "<p>from " . number_format($reviewCount, 1) . "K reviews</p>";
+                                    ?>
+                </div>
+            <p>State: <?php echo htmlspecialchars($row['state']); ?></p>
+           <p>City: <?php echo htmlspecialchars($row['city']); ?></p>
+            <p>Entry Fee: <?php echo htmlspecialchars($row['entry_fee']); ?>&#8377;</p>
+            <p>Best time to visit: <?php echo htmlspecialchars($row['best_visit_time']); ?></p>
+            <form class="detail-btn" action="loc_details.php" method="get">
+             <input type="hidden" name="location_name" value="<?php echo htmlspecialchars($row['city']); ?>" />
+             <button type="submit" class="location-btn">More About City</button>
+            </form>
+            </div>
+            </div>
+            <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+        <p class="nothing">You have no favourite locations!</p>
+        <?php endif; ?>
+        </section>
         </main>
 
         <!-- Profile Section -->

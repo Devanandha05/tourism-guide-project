@@ -15,7 +15,8 @@ session_start();
 
         $_SESSION['username']=$row['username'];
         if ($conn->query($sql) === TRUE) {
-            // Redirect based on user type (default to home page since it's a signup)
+            $_SESSION['username']=$username;
+            $_SESSION['loggedin'] = true;
             header("Location: /TOURIST GUIDE PROJECT/home/homeYathra.php");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
